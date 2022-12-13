@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit var name:String
+    var name:String? = null
     private var mobile:String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,13 +17,17 @@ class MainActivity : AppCompatActivity() {
             name = nameInput.text.toString()
             mobile = mobileInput.text.toString()
 
-            /*
-                Show message in Toast
-            * */
-            Toast.makeText(applicationContext, "이름: $name, 전화번호: $mobile", Toast.LENGTH_LONG).show()
+            val nameLength = name?.length ?: 0
 
-            // show value in Logcat using println
-            println("안녕 : ${name}")
+            if (nameLength > 0) {
+                /*
+                    Show message in Toast
+                * */
+                Toast.makeText(applicationContext, "이름: $name, 전화번호: $mobile", Toast.LENGTH_LONG).show()
+
+                // show value in Logcat using println
+                println("안녕 : ${name}")
+            }
         }
     }
 }
