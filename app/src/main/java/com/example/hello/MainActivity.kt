@@ -1,33 +1,27 @@
 package com.example.hello
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var name:String? = null
-    private var mobile:String? = null
+    var first:Int = 0
+    var second:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button.setOnClickListener {
-            name = nameInput.text.toString()
-            mobile = mobileInput.text.toString()
+        addButton.setOnClickListener {
+            val firstStr = input1.text.toString()
+            val secondStr = input2.text.toString()
 
-            val nameLength = name?.length ?: 0
+            first = firstStr.toInt()
+            second = secondStr.toInt()
 
-            if (nameLength > 0) {
-                /*
-                    Show message in Toast
-                * */
-                Toast.makeText(applicationContext, "이름: $name, 전화번호: $mobile", Toast.LENGTH_LONG).show()
-
-                // show value in Logcat using println
-                println("안녕 : ${name}")
-            }
+            val result = first + second
+            output1.text = "결과 : $result"
         }
+
     }
 }
