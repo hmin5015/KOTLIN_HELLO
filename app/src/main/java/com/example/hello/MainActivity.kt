@@ -2,11 +2,16 @@ package com.example.hello
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.hello.constants.mBonus
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     var first:Int = 0
     var second:Int = 0
+
+    companion object {
+        const val BONUS = 100
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             first = firstStr.toInt()
             second = secondStr.toInt()
 
-            val result = first + second
+            val result = first + second + MainActivity.BONUS + mBonus
             output1.text = "결과 : $result"
 
             if (result == 20) {
