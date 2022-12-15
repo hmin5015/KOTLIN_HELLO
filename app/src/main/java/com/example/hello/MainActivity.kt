@@ -12,9 +12,22 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
             show("안녕")
         }
+
+        button2.setOnClickListener {
+            val firstStr = input1.text.toString()
+            val secondStr = input2.text.toString()
+
+            val first = firstStr.toInt()
+            val second = secondStr.toInt()
+
+            val result = sum(first, second)
+            output1.text = "더하기 결과: $result"
+        }
     }
 
     fun show(message:String) {
         println("버튼이 눌렸어요. : $message")
     }
+
+    fun sum(firstValue:Int, secondValue:Int) = firstValue + secondValue
 }
